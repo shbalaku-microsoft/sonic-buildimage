@@ -300,7 +300,7 @@ class TestCfgGen(TestCase):
         graph_file = kwargs.get('graph_file', self.sample_graph_simple)
         argument = ['-m', graph_file, '-p', self.port_config, '-v', "VLAN_INTERFACE.keys()|list"]
         output = self.run_script(argument)
-        self.assertEqual(output.strip(), "[('Vlan1000', '192.168.0.1/27'), 'Vlan1000']")
+        self.assertEqual(output.strip(), "[('Vlan1000', '192.168.0.1/27'), 'Vlan1000']")        
 
     def test_minigraph_ecmp_fg_nhg(self):
         argument = ['-m', self.ecmp_graph, '-p', self.mlnx_port_config, '-v', 'FG_NHG']

@@ -1,0 +1,11 @@
+# Base docker build
+FROM sonic-slave-buster:367d8f45808
+
+# Copy the cache data to host
+From scratch as output
+COPY --from=sonic-slave-buster:367d8f45808 /cache.tgz cache.tgz
+
+# Clean up the cache data
+FROM sonic-slave-buster:367d8f45808 as final
+RUN rm /cache.tgz
+
